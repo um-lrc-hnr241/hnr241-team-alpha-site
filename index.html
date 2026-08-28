@@ -7,28 +7,30 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <header>
     <div class="site-title">
       <h1>Daybreak Coffee</h1>
     </div>
-    <nav>
-      <a href="index.html">Home</a>
+    <nav aria-label="Main navigation">
+      <a href="index.html" aria-current="page">Home</a>
       <a href="menu.html">Menu</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="banner">
-      <div class="banner-placeholder">
-        <span>Photo of Daybreak Coffee coming soon</span>
+      <div class="banner-placeholder" role="img" aria-label="Photo of Daybreak Coffee coming soon">
+        <p>Photo of Daybreak Coffee coming soon</p>
       </div>
       <h2>Daybreak Coffee — Good mornings start here.</h2>
       <p class="blurb">We roast in small batches and pour with care, right in the heart of downtown.</p>
     </section>
 
-    <section class="hours">
-      <h3>Hours</h3>
+    <section class="hours" aria-labelledby="hours-heading">
+      <h3 id="hours-heading">Hours</h3>
       <div class="hours-grid">
         <div class="hours-card">
           <h4>Weekdays</h4>
@@ -45,7 +47,7 @@
   </main>
 
   <footer>
-    <p>Daybreak Coffee — 123 Main St, Anytown</p>
+    <address>Daybreak Coffee — 123 Main St, Anytown</address>
     <p>Mon–Fri 6am-6pm | Sat–Sun 7am-4pm</p>
   </footer>
 </body>
