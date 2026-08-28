@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Daybreak Coffee</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <div class="site-title">
+      <h1>Daybreak Coffee</h1>
+    </div>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <h2>Contact Us</h2>
+
+    <section class="card" aria-labelledby="visit-heading">
+      <h3 id="visit-heading">Visit Us</h3>
+      <address>
+        123 Main St, Anytown<br>
+        Phone: <a href="tel:+15551234567">(555) 123-4567</a><br>
+        Email: <a href="mailto:hello@daybreakcoffee.example">hello@daybreakcoffee.example</a>
+      </address>
+    </section>
+
+    <section class="card" aria-labelledby="map-heading">
+      <h3 id="map-heading">Find Us</h3>
+      <div class="map-placeholder" role="img" aria-label="Map showing Daybreak Coffee location at 123 Main St, Anytown">
+        <p>Map coming soon</p>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="form-heading">
+      <h3 id="form-heading">Send Us a Message</h3>
+      <form action="mailto:hello@daybreakcoffee.example" method="post" enctype="text/plain">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <address>Daybreak Coffee — 123 Main St, Anytown</address>
+    <p>Mon–Fri 6am-6pm | Sat–Sun 7am-4pm</p>
+  </footer>
+</body>
+</html>
