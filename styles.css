@@ -1,9 +1,13 @@
-/* Daybreak Coffee - shared styles */
+/* Daybreak Coffee - shared styles (modernized) */
 
 :root {
   --brown: #6F4E37;
+  --brown-dark: #4E362A;
+  --brown-light: #A9784F;
   --cream: #FDF6EC;
+  --cream-soft: #F3E6D6;
   --charcoal: #2b2b2b;
+  --shadow: rgba(79, 54, 38, 0.15);
 }
 
 * {
@@ -14,69 +18,135 @@ body {
   margin: 0;
   background-color: var(--cream);
   color: var(--charcoal);
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  line-height: 1.5;
+  font-family: 'Segoe UI', system-ui, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
 }
 
 h1, h2, h3 {
-  font-family: Georgia, 'Times New Roman', serif;
-  color: var(--brown);
+  font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+  color: var(--brown-dark);
   margin: 0.4em 0;
 }
 
+a {
+  color: inherit;
+}
+
+/* Header / Nav */
 header {
-  background-color: var(--brown);
+  background: linear-gradient(135deg, var(--brown), var(--brown-dark));
   color: var(--cream);
   padding: 1rem;
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px var(--shadow);
 }
 
 header .site-title h1 {
   color: var(--cream);
   margin: 0 0 0.5rem 0;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
+  letter-spacing: 0.5px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 nav a {
   color: var(--cream);
   text-decoration: none;
-  margin: 0 0.75rem;
   font-weight: bold;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-nav a:hover {
-  text-decoration: underline;
+nav a:hover,
+nav a:focus {
+  background-color: rgba(253, 246, 236, 0.18);
+  transform: translateY(-1px);
 }
 
 main {
-  max-width: 700px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 1.5rem 1rem;
+  padding: 1.75rem 1rem 2.5rem;
 }
 
+/* Hero / Banner */
 .banner {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
+  background-color: #fff;
+  border-radius: 14px;
+  padding: 1.75rem 1.25rem;
+  box-shadow: 0 6px 18px var(--shadow);
 }
 
 .banner-placeholder {
-  background-color: #e6d5c3;
-  border: 2px dashed var(--brown);
-  color: var(--brown);
+  background: linear-gradient(135deg, var(--cream-soft), #e6d5c3);
+  border: 2px dashed var(--brown-light);
+  border-radius: 10px;
+  color: var(--brown-dark);
   padding: 3rem 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   font-style: italic;
+}
+
+.banner h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
 }
 
 .blurb {
   font-size: 1.05rem;
+  color: var(--charcoal);
+  max-width: 520px;
+  margin: 0 auto;
 }
 
+/* Hours */
 .hours {
   background-color: #fff;
-  border: 1px solid #e0d3c2;
-  border-radius: 6px;
-  padding: 1rem 1.5rem;
+  border-radius: 14px;
+  padding: 1.5rem 1.5rem 1.75rem;
+  box-shadow: 0 6px 18px var(--shadow);
+}
+
+.hours h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.hours-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 480px) {
+  .hours-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hours-card {
+  background-color: var(--cream-soft);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.hours-card h4 {
+  margin: 0 0 0.35rem 0;
+  color: var(--brown-dark);
+  font-family: Georgia, serif;
 }
 
 .hours ul {
@@ -89,15 +159,25 @@ main {
   padding: 0.25rem 0;
 }
 
+/* Generic section card (for menu/contact pages) */
+.card {
+  background-color: #fff;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+/* Footer */
 footer {
-  background-color: var(--brown);
+  background: linear-gradient(135deg, var(--brown-dark), var(--brown));
   color: var(--cream);
   text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
+  padding: 1.5rem 1rem;
+  margin-top: 2.5rem;
   font-size: 0.9rem;
 }
 
 footer p {
-  margin: 0.2rem 0;
+  margin: 0.25rem 0;
 }
