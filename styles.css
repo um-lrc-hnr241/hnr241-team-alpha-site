@@ -136,16 +136,71 @@ main {
 
 .banner-placeholder {
   background: linear-gradient(135deg, var(--cream-soft), #e6d5c3);
-  border: 2px dashed var(--brown-light);
   border-radius: 10px;
   color: var(--brown-dark);
-  padding: 3rem 1rem;
+  padding: 1rem;
   margin-bottom: 1.25rem;
-  font-style: italic;
 }
 
 .banner-placeholder p {
   margin: 0;
+}
+
+/* Animated coffee rain (pure CSS, no JavaScript required) */
+.coffee-rain {
+  position: relative;
+  overflow: hidden;
+  min-height: 220px;
+}
+
+.coffee-rain .cup {
+  position: absolute;
+  top: -15%;
+  font-size: 1.9rem;
+  line-height: 1;
+  opacity: 0;
+  animation-name: cup-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes cup-fall {
+  0% {
+    transform: translateY(-30px) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.9;
+  }
+  92% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(230px) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+.coffee-rain .cup:nth-child(1) { left: 4%;  animation-duration: 7.2s; animation-delay: 0s; }
+.coffee-rain .cup:nth-child(2) { left: 12%; animation-duration: 6.4s; animation-delay: 1.1s; }
+.coffee-rain .cup:nth-child(3) { left: 20%; animation-duration: 8s;   animation-delay: 2.3s; }
+.coffee-rain .cup:nth-child(4) { left: 28%; animation-duration: 6.8s; animation-delay: 0.6s; }
+.coffee-rain .cup:nth-child(5) { left: 37%; animation-duration: 7.6s; animation-delay: 1.8s; }
+.coffee-rain .cup:nth-child(6) { left: 46%; animation-duration: 6.2s; animation-delay: 3s; }
+.coffee-rain .cup:nth-child(7) { left: 55%; animation-duration: 7.9s; animation-delay: 0.9s; }
+.coffee-rain .cup:nth-child(8) { left: 64%; animation-duration: 6.6s; animation-delay: 2.6s; }
+.coffee-rain .cup:nth-child(9) { left: 73%; animation-duration: 7.3s; animation-delay: 1.4s; }
+.coffee-rain .cup:nth-child(10) { left: 82%; animation-duration: 6.9s; animation-delay: 3.4s; }
+.coffee-rain .cup:nth-child(11) { left: 90%; animation-duration: 7.5s; animation-delay: 0.3s; }
+.coffee-rain .cup:nth-child(12) { left: 96%; animation-duration: 6.5s; animation-delay: 2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .coffee-rain .cup {
+    animation: none;
+    opacity: 0.6;
+    top: 40%;
+  }
 }
 
 .banner h2 {
