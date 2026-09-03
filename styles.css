@@ -146,7 +146,13 @@ main {
   margin: 0;
 }
 
-/* Animated coffee rain (pure CSS, no JavaScript required) */
+/* Animated coffee rain
+   Each cup's horizontal position, fall speed, and (for the initial
+   render) start delay are assigned by script.js, which also re-randomizes
+   position/speed on every animation loop via an "animationiteration"
+   listener. That keeps the rain feeling organic instead of a fixed,
+   obviously-repeating pattern. CSS below only defines the base look,
+   the fall keyframes, and the reduced-motion fallback. */
 .coffee-rain {
   position: relative;
   overflow: hidden;
@@ -181,19 +187,6 @@ main {
     opacity: 0;
   }
 }
-
-.coffee-rain .cup:nth-child(1) { left: 4%;  animation-duration: 7.2s; animation-delay: 0s; }
-.coffee-rain .cup:nth-child(2) { left: 12%; animation-duration: 6.4s; animation-delay: 1.1s; }
-.coffee-rain .cup:nth-child(3) { left: 20%; animation-duration: 8s;   animation-delay: 2.3s; }
-.coffee-rain .cup:nth-child(4) { left: 28%; animation-duration: 6.8s; animation-delay: 0.6s; }
-.coffee-rain .cup:nth-child(5) { left: 37%; animation-duration: 7.6s; animation-delay: 1.8s; }
-.coffee-rain .cup:nth-child(6) { left: 46%; animation-duration: 6.2s; animation-delay: 3s; }
-.coffee-rain .cup:nth-child(7) { left: 55%; animation-duration: 7.9s; animation-delay: 0.9s; }
-.coffee-rain .cup:nth-child(8) { left: 64%; animation-duration: 6.6s; animation-delay: 2.6s; }
-.coffee-rain .cup:nth-child(9) { left: 73%; animation-duration: 7.3s; animation-delay: 1.4s; }
-.coffee-rain .cup:nth-child(10) { left: 82%; animation-duration: 6.9s; animation-delay: 3.4s; }
-.coffee-rain .cup:nth-child(11) { left: 90%; animation-duration: 7.5s; animation-delay: 0.3s; }
-.coffee-rain .cup:nth-child(12) { left: 96%; animation-duration: 6.5s; animation-delay: 2s; }
 
 @media (prefers-reduced-motion: reduce) {
   .coffee-rain .cup {
