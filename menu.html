@@ -23,59 +23,46 @@
   <main id="main-content">
     <h2>Our Menu</h2>
 
-    <section class="card" aria-labelledby="coffee-heading">
-      <h3 id="coffee-heading">Coffee</h3>
-      <table>
-        <caption class="visually-hidden">Coffee menu items and prices</caption>
-        <thead>
-          <tr>
-            <th scope="col">Item</th>
-            <th scope="col">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Drip Coffee</td>
-            <td>$3.00</td>
-          </tr>
-          <tr>
-            <td>Latte</td>
-            <td>$4.50</td>
-          </tr>
-          <tr>
-            <td>Cappuccino</td>
-            <td>$4.50</td>
-          </tr>
-          <tr>
-            <td>Cold Brew</td>
-            <td>$4.00</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    <!-- Menu is presented as a chalkboard with hanging price-tag
+         elements for each item, per the group's request for a more
+         visually appealing, in-shop feel. -->
+    <div class="chalkboard">
+      <section class="chalk-section" aria-labelledby="coffee-heading">
+        <h3 id="coffee-heading">Coffee</h3>
+        <ul class="menu-list">
+          <li class="menu-item">
+            <span class="item-name">Drip Coffee</span>
+            <span class="price-tag"><span class="visually-hidden">Price: </span>$3.00</span>
+          </li>
+          <li class="menu-item">
+            <span class="item-name">Latte</span>
+            <span class="price-tag"><span class="visually-hidden">Price: </span>$4.50</span>
+          </li>
+          <li class="menu-item">
+            <span class="item-name">Cappuccino</span>
+            <span class="price-tag"><span class="visually-hidden">Price: </span>$4.50</span>
+          </li>
+          <li class="menu-item">
+            <span class="item-name">Cold Brew</span>
+            <span class="price-tag"><span class="visually-hidden">Price: </span>$4.00</span>
+          </li>
+        </ul>
+      </section>
 
-    <section class="card" aria-labelledby="food-heading">
-      <h3 id="food-heading">Food</h3>
-      <table>
-        <caption class="visually-hidden">Food menu items and prices</caption>
-        <thead>
-          <tr>
-            <th scope="col">Item</th>
-            <th scope="col">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Croissant</td>
-            <td>$3.50</td>
-          </tr>
-          <tr>
-            <td>Blueberry Muffin</td>
-            <td>$3.00</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <section class="chalk-section" aria-labelledby="food-heading">
+        <h3 id="food-heading">Food</h3>
+        <ul class="menu-list">
+          <li class="menu-item">
+            <span class="item-name">Croissant</span>
+            <span class="price-tag"><span class="visually-hidden">Price: </span>$3.50</span>
+          </li>
+          <li class="menu-item">
+            <span class="item-name">Blueberry Muffin</span>
+            <span class="price-tag"><span class="visually-hidden">Price: </span>$3.00</span>
+          </li>
+        </ul>
+      </section>
+    </div>
   </main>
 
   <footer>
