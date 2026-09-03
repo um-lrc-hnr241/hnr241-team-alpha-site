@@ -147,12 +147,13 @@ main {
 }
 
 /* Animated coffee rain
-   Each cup's horizontal position, fall speed, and (for the initial
-   render) start delay are assigned by script.js, which also re-randomizes
-   position/speed on every animation loop via an "animationiteration"
-   listener. That keeps the rain feeling organic instead of a fixed,
-   obviously-repeating pattern. CSS below only defines the base look,
-   the fall keyframes, and the reduced-motion fallback. */
+   The falling motion, fade in/out, and rotation of each cup are now
+   computed and applied frame-by-frame by script.js (via
+   requestAnimationFrame and inline transform/opacity styles), rather
+   than CSS @keyframes. This CSS only sets up the container and the
+   base look of a cup, plus a static, evenly-spaced arrangement used
+   as a fallback when JavaScript is unavailable (see the <noscript>
+   block in index.html). */
 .coffee-rain {
   position: relative;
   overflow: hidden;
@@ -161,40 +162,30 @@ main {
 
 .coffee-rain .cup {
   position: absolute;
-  top: -15%;
+  top: 35%;
   font-size: 1.9rem;
   line-height: 1;
-  opacity: 0;
-  animation-name: cup-fall;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  opacity: 0.6;
+  transform: none;
   will-change: transform, opacity;
 }
 
-@keyframes cup-fall {
-  0% {
-    transform: translateY(-30px) rotate(0deg);
-    opacity: 0;
-  }
-  8% {
-    opacity: 0.9;
-  }
-  92% {
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateY(230px) rotate(20deg);
-    opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .coffee-rain .cup {
-    animation: none;
-    opacity: 0.6;
-    top: 40%;
-  }
-}
+/* Static, evenly-spaced fallback positions for the no-JS/noscript cups.
+   When JavaScript runs, script.js sets inline left/top/transform/opacity
+   styles on these same elements, which take precedence over the rules
+   below. */
+.coffee-rain .cup:nth-child(1) { left: 4%; }
+.coffee-rain .cup:nth-child(2) { left: 12%; }
+.coffee-rain .cup:nth-child(3) { left: 20%; }
+.coffee-rain .cup:nth-child(4) { left: 28%; }
+.coffee-rain .cup:nth-child(5) { left: 36%; }
+.coffee-rain .cup:nth-child(6) { left: 44%; }
+.coffee-rain .cup:nth-child(7) { left: 52%; }
+.coffee-rain .cup:nth-child(8) { left: 60%; }
+.coffee-rain .cup:nth-child(9) { left: 68%; }
+.coffee-rain .cup:nth-child(10) { left: 76%; }
+.coffee-rain .cup:nth-child(11) { left: 84%; }
+.coffee-rain .cup:nth-child(12) { left: 92%; }
 
 .banner h2 {
   font-size: 1.6rem;
