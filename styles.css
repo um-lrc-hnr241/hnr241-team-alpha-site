@@ -1,5 +1,8 @@
 /* Daybreak Coffee - shared styles */
-/* Palette follows the style guide: warm brown, cream background, charcoal text */
+/* Palette follows the style guide: warm brown, cream background, charcoal text,
+   with a warm gold accent added for visual highlights/pop. */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
   --brown: #6F4E37;
@@ -8,7 +11,10 @@
   --cream: #FDF6EC;
   --cream-soft: #F3E6D6;
   --charcoal: #2b2b2b;
+  --accent: #C0863C;
+  --accent-dark: #9C6B2C;
   --shadow: rgba(79, 54, 38, 0.15);
+  --shadow-strong: rgba(79, 54, 38, 0.25);
 }
 
 * {
@@ -17,14 +23,15 @@
 
 body {
   margin: 0;
-  background-color: var(--cream);
+  background: radial-gradient(circle at top left, #fffaf3 0%, var(--cream) 45%, var(--cream-soft) 100%);
   color: var(--charcoal);
-  font-family: 'Segoe UI', system-ui, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', 'Segoe UI', system-ui, Helvetica, Arial, sans-serif;
   line-height: 1.6;
 }
 
 h1, h2, h3, h4 {
-  font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+  font-family: 'Fraunces', Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+  font-weight: 600;
   color: var(--brown-dark);
   margin: 0.4em 0;
 }
@@ -78,12 +85,14 @@ header {
   top: 0;
   z-index: 10;
   box-shadow: 0 2px 8px var(--shadow);
+  border-bottom: 4px solid var(--accent);
 }
 
 header .site-title h1 {
   color: var(--cream);
   margin: 0 0 0.5rem 0;
-  font-size: 1.9rem;
+  font-size: 2.05rem;
+  font-weight: 700;
   letter-spacing: 0.5px;
 }
 
@@ -116,6 +125,8 @@ nav a:focus-visible {
 nav a[aria-current="page"] {
   background-color: rgba(253, 246, 236, 0.28);
   text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
 }
 
 main {
@@ -124,18 +135,27 @@ main {
   padding: 1.75rem 1rem 2.5rem;
 }
 
+/* Page-level section headings get a warm underline accent for visual hierarchy */
+main > h2 {
+  display: inline-block;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
 /* Hero / Banner */
 .banner {
   text-align: center;
   margin-bottom: 2.25rem;
   background-color: #fff;
   border-radius: 14px;
+  border-top: 4px solid var(--accent);
   padding: 1.75rem 1.25rem;
   box-shadow: 0 6px 18px var(--shadow);
 }
 
 .banner-placeholder {
-  background: linear-gradient(135deg, var(--cream-soft), #e6d5c3);
+  background: linear-gradient(135deg, var(--cream-soft), #e6d5c3 60%, #f1d9b0 100%);
   border-radius: 10px;
   color: var(--brown-dark);
   padding: 1rem;
@@ -188,7 +208,7 @@ main {
 .coffee-rain .cup:nth-child(12) { left: 92%; }
 
 .banner h2 {
-  font-size: 1.6rem;
+  font-size: 1.65rem;
   margin-bottom: 0.5rem;
 }
 
@@ -227,14 +247,21 @@ main {
 .hours-card {
   background-color: var(--cream-soft);
   border-radius: 10px;
+  border-top: 3px solid var(--accent);
   padding: 1rem;
   text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hours-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px var(--shadow);
 }
 
 .hours-card h4 {
   margin: 0 0 0.35rem 0;
   color: var(--brown-dark);
-  font-family: Georgia, serif;
+  font-family: 'Fraunces', Georgia, serif;
 }
 
 /* Generic section card (for menu/contact pages) */
@@ -244,6 +271,12 @@ main {
   padding: 1.5rem;
   box-shadow: 0 6px 18px var(--shadow);
   margin-bottom: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px var(--shadow-strong);
 }
 
 /* Tables (menu) */
@@ -261,11 +294,24 @@ th, td {
 
 th {
   color: var(--brown-dark);
-  font-family: Georgia, serif;
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+tbody tr {
+  transition: background-color 0.15s ease;
 }
 
 tbody tr:nth-child(even) {
   background-color: var(--cream-soft);
+}
+
+tbody tr:hover {
+  background-color: var(--cream-soft);
+}
+
+table td:last-child {
+  font-weight: 700;
+  color: var(--accent-dark);
 }
 
 /* Address / contact details */
@@ -330,11 +376,14 @@ button {
   font-size: 1rem;
   cursor: pointer;
   align-self: flex-start;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 button:hover,
 button:focus-visible {
   background-color: var(--brown-dark);
+  box-shadow: 0 4px 10px var(--shadow-strong);
+  transform: translateY(-1px);
 }
 
 /* Footer */
@@ -345,6 +394,7 @@ footer {
   padding: 1.5rem 1rem;
   margin-top: 2.5rem;
   font-size: 0.9rem;
+  border-top: 4px solid var(--accent);
 }
 
 footer p,
