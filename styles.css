@@ -443,6 +443,12 @@ address {
   flex-direction: column;
 }
 
+.form-instructions {
+  font-size: 0.9rem;
+  color: var(--brown-dark);
+  margin: 0 0 1.1rem 0;
+}
+
 label {
   font-weight: bold;
   margin-bottom: 0.35rem;
