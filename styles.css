@@ -79,7 +79,7 @@ textarea:focus-visible {
 /* Header / Nav */
 header {
   background:
-    linear-gradient(135deg, rgba(111, 78, 55, 0.88), rgba(78, 54, 42, 0.92)),
+    linear-gradient(135deg, rgba(111, 78, 55, 0.55), rgba(78, 54, 42, 0.62)),
     url('images/header.png') center / cover no-repeat;
   color: var(--cream);
   padding: 1rem;
@@ -97,6 +97,7 @@ header .site-title h1 {
   font-size: 2.05rem;
   font-weight: 700;
   letter-spacing: 0.5px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
 }
 
 nav {
@@ -113,6 +114,7 @@ nav a {
   padding: 0.5rem 1rem;
   border-radius: 999px;
   transition: background-color 0.2s ease, transform 0.2s ease;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 nav a:hover {
@@ -136,6 +138,7 @@ main {
   max-width: 760px;
   margin: 0 auto;
   padding: 1.75rem 1rem 2.5rem;
+  position: relative;
 }
 
 /* Page-level section headings get a warm underline accent for visual hierarchy */
@@ -149,6 +152,7 @@ main > h2 {
 /* Hero / Banner */
 .banner {
   position: relative;
+  z-index: 1;
   overflow: hidden;
   text-align: center;
   margin-bottom: 2.25rem;
@@ -173,37 +177,32 @@ main > h2 {
   margin: 0;
 }
 
-/* Masked splash background video
-   A short pour clip plays behind the hero content, clipped into an
-   organic "splash" shape with a CSS mask so it reads as a decorative
-   accent rather than a full video panel. The video is muted, silent,
-   and purely decorative (no captions/track needed since it conveys no
-   information), and is paused by script.js — plus hidden here via
-   prefers-reduced-motion — for visitors who prefer reduced motion. */
-.banner-video-wrap {
+/* Content-area background video
+   A short pour clip plays as a subtle, low-opacity backdrop behind the
+   entire main content area (rather than being boxed inside a single
+   card), so it reads as an ambient background accent for the whole
+   page. The video is muted, silent, and purely decorative (no
+   captions/track needed since it conveys no information), and is
+   paused by script.js — plus hidden here via prefers-reduced-motion —
+   for visitors who prefer reduced motion. */
+.content-video-wrap {
   position: absolute;
   inset: 0;
   z-index: 0;
-  opacity: 0.5;
+  opacity: 0.16;
+  overflow: hidden;
+  border-radius: 14px;
   pointer-events: none;
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Cpath d='M20,50 C20,10 60,0 100,10 C140,0 180,20 180,50 C180,80 140,100 100,90 C60,100 20,90 20,50 Z' fill='black'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Cpath d='M20,50 C20,10 60,0 100,10 C140,0 180,20 180,50 C180,80 140,100 100,90 C60,100 20,90 20,50 Z' fill='black'/%3E%3C/svg%3E");
-  -webkit-mask-size: cover;
-  mask-size: cover;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
 }
 
-.banner-video {
+.content-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .banner-video-wrap {
+  .content-video-wrap {
     display: none;
   }
 }
@@ -267,6 +266,8 @@ main > h2 {
 
 /* Hours */
 .hours {
+  position: relative;
+  z-index: 1;
   background-color: #fff;
   border-radius: 14px;
   padding: 1.5rem 1.5rem 1.75rem;
