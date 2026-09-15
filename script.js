@@ -155,7 +155,7 @@
   }
 
   function initBannerVideo() {
-    var video = document.querySelector(".banner-video");
+    var video = document.querySelector(".content-video");
     if (!video) {
       return;
     }
