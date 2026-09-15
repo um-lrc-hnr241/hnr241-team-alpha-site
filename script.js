@@ -154,9 +154,51 @@
     }
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initCoffeeRain);
-  } else {
+  function initBannerVideo() {
+    var video = document.querySelector(".banner-video");
+    if (!video) {
+      return;
+    }
+
+    function applyMotionPreference() {
+      if (prefersReducedMotion()) {
+        video.pause();
+      } else {
+        var playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(function () {
+            // Autoplay can be blocked by the browser; the poster image
+            // (images/header.png) remains visible as a static fallback.
+          });
+        }
+      }
+    }
+
+    applyMotionPreference();
+
+    if (window.matchMedia) {
+      var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+      var handleVideoMotionChange = function () {
+        applyMotionPreference();
+      };
+
+      if (typeof motionQuery.addEventListener === "function") {
+        motionQuery.addEventListener("change", handleVideoMotionChange);
+      } else if (typeof motionQuery.addListener === "function") {
+        // Safari < 14 fallback
+        motionQuery.addListener(handleVideoMotionChange);
+      }
+    }
+  }
+
+  function initAll() {
     initCoffeeRain();
+    initBannerVideo();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAll);
+  } else {
+    initAll();
   }
 })();
