@@ -177,21 +177,21 @@ main > h2 {
   margin: 0;
 }
 
-/* Content-area background video
+/* Full-page background video
    A short pour clip plays as a subtle, low-opacity backdrop behind the
-   entire main content area (rather than being boxed inside a single
-   card), so it reads as an ambient background accent for the whole
-   page. The video is muted, silent, and purely decorative (no
-   captions/track needed since it conveys no information), and is
-   paused by script.js — plus hidden here via prefers-reduced-motion —
-   for visitors who prefer reduced motion. */
+   entire page (header, main content, and footer), fixed to the
+   viewport so it reads as an ambient background for the whole body
+   rather than being boxed inside a single card or region. The video
+   is muted, silent, and purely decorative (no captions/track needed
+   since it conveys no information), and is paused by script.js —
+   plus hidden here via prefers-reduced-motion — for visitors who
+   prefer reduced motion. */
 .content-video-wrap {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   opacity: 0.16;
   overflow: hidden;
-  border-radius: 14px;
   pointer-events: none;
 }
 
